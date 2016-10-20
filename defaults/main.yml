@@ -1,0 +1,6 @@
+---
+
+# java install configuration
+java_packages:
+  - "{% if (ansible_distribution == 'Ubuntu' and ansible_distribution_version | version_compare('15.10', '>=')) %}openjdk-8-jre-headless{% else %}openjdk-7-jre-headless{% endif %}"
+java_home: no
