@@ -9,6 +9,10 @@ Role Variables
 --------------
 
 ```
+# java install configuration
+java_packages:
+  - "{% if (ansible_distribution == 'Ubuntu' and ansible_distribution_version | version_compare('15.10', '>=')) %}openjdk-8-jre{% else %}openjdk-7-jre{% endif %}"
+java_home: no
 ```
 
 Example Playbook
