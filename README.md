@@ -8,7 +8,7 @@ Install and configure java
 Role Variables
 --------------
 
-```
+```yaml
 # java install configuration
 java_packages:
   - "{% if (ansible_distribution == 'Ubuntu' and ansible_distribution_version | version_compare('15.10', '>=')) %}openjdk-8-jre{% else %}openjdk-7-jre{% endif %}"
@@ -18,11 +18,16 @@ java_home: no
 Example Playbook
 ----------------
 
+```yaml
+- hosts: servers
+  roles:
+     - { role: jebovic.java }
 ```
-    - hosts: servers
-      roles:
-         - { role: jebovic.java }
-```
+
+Tags
+----
+
+* java_config : only update JAVA_HOME
 
 License
 -------
