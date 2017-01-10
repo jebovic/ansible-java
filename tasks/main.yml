@@ -1,5 +1,13 @@
 ---
 
+- name: add repos
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: "{{ java_apt_repositories }}"
+  when: java_apt_repositories|length > 0
+
 - name: install apt packages
   apt:
     name:  "{{ item }}"
