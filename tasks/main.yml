@@ -11,16 +11,16 @@
 
 - name: update apt cache
   apt:
-    update_cache:       yes
+    update_cache: yes
   when: java_repo_installed|changed
 
 - name: install apt packages
   apt:
-    name:  "{{ item }}"
-    state:              latest
+    name: "{{ item }}"
+    state: latest
     install_recommends: no
-    update_cache:       yes
-    cache_valid_time:   86400
+    update_cache: yes
+    cache_valid_time: 86400
   when: java_repo_installed|success
   with_items: "{{ java_packages }}"
 
