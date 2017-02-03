@@ -2,6 +2,7 @@
 
 # java install configuration
 java_apt_repositories: []
+java_apt_default_repo: ""
 java_packages:
   - "{% if (ansible_distribution == 'Ubuntu' and ansible_distribution_version | version_compare('15.10', '>=')) %}openjdk-8-jre{% else %}openjdk-7-jre{% endif %}"
 java_home: no

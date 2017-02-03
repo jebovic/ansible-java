@@ -21,6 +21,7 @@
     install_recommends: no
     update_cache: yes
     cache_valid_time: 86400
+    default_release: "{{ java_apt_default_repo }}"
   when: java_repo_installed|success
   with_items: "{{ java_packages }}"
 
